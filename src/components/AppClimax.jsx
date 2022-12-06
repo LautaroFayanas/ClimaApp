@@ -1,17 +1,20 @@
 import useClima from '../hooks/useClima'
 import { Formulario } from './Formulario'
 import { Resultado } from './Resultado'
+import { Spinner } from './Spinner'
 
 export const AppClimax = () => {
 
-  const { resultado } = useClima()
+  const { resultado , cargando } = useClima()
 
   return (
     <>
         <main className='dos-columnas'>
                 <Formulario />
 
-                {resultado?.name && <Resultado /> }
+                { cargando? <Spinner /> :
+                
+                resultado?.name && <Resultado /> }
                 
         </main>
     </>  
